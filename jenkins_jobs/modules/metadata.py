@@ -72,7 +72,11 @@ def string_metadata(parser, xml_parent, data):
     """
     pdef = base_metadata(parser, xml_parent, data, True,
                          'metadata-string')
-    XML.SubElement(pdef, 'value').text = data['value']
+    if data['value'] == 'None':
+        value = ''
+    else:
+        value = data['value']
+    XML.SubElement(pdef, 'value').text = value
 
 
 def number_metadata(parser, xml_parent, data):
@@ -93,7 +97,11 @@ def number_metadata(parser, xml_parent, data):
     """
     pdef = base_metadata(parser, xml_parent, data, True,
                          'metadata-number')
-    XML.SubElement(pdef, 'value').text = data['value']
+    if data['value'] == 'None':
+        value = ''
+    else:
+        value = data['value']
+    XML.SubElement(pdef, 'value').text = value
 
 
 def date_metadata(parser, xml_parent, data):
